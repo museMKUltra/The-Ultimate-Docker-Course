@@ -14,7 +14,7 @@ services:
       - 3001:3001
     environment:
       DB_URL: mongodb://db/vidly
-    command: ./docker-entrypoint.sh
+    command: ['sh', 'docker-entrypoint.sh']
     restart: unless-stopped
   db:
     image: mongo:4.0-xenial
