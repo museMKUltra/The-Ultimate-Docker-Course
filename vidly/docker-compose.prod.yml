@@ -5,16 +5,18 @@ services:
     build:
       context: ./frontend
       dockerfile: Dockerfile.prod
+    image: vidly_web:1
     ports:
       - 80:80
     restart: unless-stopped
   api:
     build: ./backend
+    image: vidly_api:1
     ports:
       - 3001:3001
     environment:
       DB_URL: mongodb://db/vidly
-    command: ['sh', 'docker-entrypoint.sh']
+    command: [ 'sh', 'docker-entrypoint.sh' ]
     restart: unless-stopped
   db:
     image: mongo:4.0-xenial
